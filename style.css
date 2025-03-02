@@ -6,7 +6,7 @@ body {
     height: 200px;
     width: 200px;
     border-radius: 20%;
-    border: 10px solid black;
+    border: 6px solid black;
     margin: 2.5rem;
 }
 
@@ -24,21 +24,21 @@ body {
 }
 
 .grey {
-    background-color: grey;
+    background-color: blue;
 }
 
 .purple {
-    background-color: purple;
+    background-color: green;
 }
 
 .flashBtn {
-    background-color: white;
+    background-color: black;
 }
 
 .userFlash {
-    background-color: aquamarine;
+    background-color: grey;
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 20px;
 }

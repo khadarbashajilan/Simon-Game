@@ -10,18 +10,23 @@
 
 <body>
     <h1>Simon Says Game</h1>
-    <h2>Press any key to start the game</h2>
+    <h2>Touch to start the game</h2>
     <h3></h3>
     <div class="btn-container">
         <div class="line-one">
-            <div class="btn red" type="button" id="red"></div>
-            <div class="btn yellow" type="button" id="yellow"></div>
+            <div onclick="document.getElementById('red1').play()" class="btn red" type="button" id="red"></div>
+            <div onclick="document.getElementById('yellow1').play()"  class="btn yellow" type="button" id="yellow"></div>
         </div>
         <div class="line-two">
-            <div class="btn grey" type="button" id="grey"></div>
-            <div class="btn purple" type="button" id="purple"></div>
+            <div onclick="document.getElementById('grey1').play()"  class="btn grey" type="button" id="grey"></div>
+            <div onclick="document.getElementById('purple1').play()"  class="btn purple" type="button" id="purple"></div>
         </div>
     </div>
+    <audio id="red1" src="./sounds/red.mp3"></audio>
+    <audio id="yellow1" src="./sounds/purple.mp3"></audio>
+    <audio id="grey1" src="./sounds/red.mp3"></audio>
+    <audio id="purple1" src="./sounds/yellow.mp3"></audio>
+    <audio id="wrong" src="./sounds/wrong.mp3"></audio>
 
     <script src="app.js"></script>
 </body>

@@ -1,5 +1,6 @@
 let gameSeq = [];
 let userSeq = [];
+
 let btns = ["yellow", "grey", "red", "purple"];
 
 let started = false;
@@ -8,15 +9,18 @@ let highscore = 1;
 
 let h2 = document.querySelector("h2");
 let h3 = document.querySelector("h3");
-document.addEventListener("keypress", function(){
+
+document.addEventListener("pointerdown", starTs);
+function starTs(){
     if (started == false) {
         console.log("Game Started");
         started = true;       
         levelUp(); 
     }
-});
+};
 
 function btnFlash(btn){
+
     btn.classList.add("flashBtn");
     setTimeout(function() {
         btn.classList.remove("flashBtn");
@@ -26,18 +30,19 @@ function userFlash(btn){
     btn.classList.add("userFlash");
     setTimeout(function() {
         btn.classList.remove("userFlash");
-    }, 500);
+    }, 400);
 }
 
 function levelUp() {
     userSeq = [];
     level++;
-    if(level >= highscore){
+    if(level > highscore){
         highscore = level;
     }
     h2.innerText = `Level ${level}`;
     let randIdx = Math.floor(Math.random() * 4);
     let randColor = btns[randIdx];
+    document.getElementById(`${randColor}1`).play();
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
     console.log(gameSeq);
@@ -45,25 +50,27 @@ function levelUp() {
 }
 
 function checkAns(idx) {
+    let h2 = document.querySelector("h2");
+
     if(userSeq[idx] === gameSeq[idx]) {
         if (userSeq.length == gameSeq.length) {
             setTimeout(levelUp, 1000);
         }
     } else {
-        h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any Key to Start.`;
+        h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Touch to Start.`;
         h3.innerHTML =`Highest Score =  ${highscore}`;
         document.querySelector("body").style.backgroundColor = "red";
+        document.getElementById(`wrong`).play();
         setTimeout(function () {
             document.querySelector("body").style.backgroundColor = "white";
-        }, 1000)
+        }, 2000)
         reset();
     }
 }
 
 function btnPress() {
     let btn = this;     
-    userFlash(btn);
-    
+    userFlash(btn);   
     userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
@@ -81,4 +88,3 @@ function reset() {
     userSeq = [];
     level = 0;
 }
-
