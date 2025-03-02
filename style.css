@@ -16,11 +16,11 @@ body {
 }
 
 .red {
-    background-color: rgb(198, 79, 79);
+    background-color: red;
 }
 
 .yellow {
-    background-color: yellowgreen;
+    background-color: yellow;
 }
 
 .grey {
@@ -28,7 +28,7 @@ body {
 }
 
 .purple {
-    background-color: rgb(167, 78, 167);
+    background-color: purple;
 }
 
 .flashBtn {
